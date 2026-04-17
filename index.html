@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hub de Flo</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+      background: #0f1117;
+      color: #e8eaf0;
+      min-height: 100vh;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 28px;
+      background: #1a1d2e;
+      border-bottom: 1px solid #2a2d3e;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    #toggleMode {
+      background: #22263a;
+      color: #e8eaf0;
+      border: 1px solid #2a2d3e;
+      padding: 7px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.82rem;
+      transition: all 0.2s;
+    }
+
+    #toggleMode:hover { background: #667eea; color: #fff; }
+
+    body.light { background: #f0f2f7; color: #1a1d2e; }
+    body.light header { background: #ffffff; border-color: #dde2ee; }
+    body.light #toggleMode { background: #e8eaf0; color: #1a1d2e; border-color: #dde2ee; }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #8892a4;
+      font-size: 0.95rem;
+      margin-bottom: 40px;
+    }
+
+    body.light .subtitle { color: #5a6478; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 24px;
+    }
+
+    .tuile {
+      background: #1a1d2e;
+      border: 1px solid #2a2d3e;
+      border-radius: 18px;
+      padding: 28px 20px;
+      text-align: center;
+      text-decoration: none;
+      color: #e8eaf0;
+      cursor: pointer;
+      transition: all 0.25s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    body.light .tuile {
+      background: #ffffff;
+      border-color: #dde2ee;
+      color: #1a1d2e;
+    }
+
+    .tuile:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      border-color: #3d8ef8;
+    }
+
+    .tuile-icone {
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+    }
+
+    .tuile-titre {
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    /* Dégradés */
+    .grad-1 { background: linear-gradient(135deg, #667eea, #764ba2); }
+    .grad-2 { background: linear-gradient(135deg, #f093fb, #f5576c); }
+    .grad-3 { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+    .grad-4 { background: linear-gradient(135deg, #43e97b, #38f9d7); }
+    .grad-5 { background: linear-gradient(135deg, #fa709a, #fee140); }
+    .grad-6 { background: linear-gradient(135deg, #a18cd1, #fbc2eb); }
+    .grad-7 { background: linear-gradient(135deg, #ffecd2, #fcb69f); }
+    .grad-8 { background: linear-gradient(135deg, #84fab0, #8fd3f4); }
+
+    /* Tuile "Ajouter" */
+    .tuile-add {
+      border: 2px dashed #2a2d3e;
+      background: transparent;
+      color: #8892a4;
+    }
+
+    body.light .tuile-add { border-color: #dde2ee; color: #5a6478; }
+
+    .tuile-add:hover {
+      border-color: #667eea;
+      color: #667eea;
+      background: rgba(102,126,234,0.05);
+      transform: translateY(-4px);
+    }
+
+    .tuile-add .tuile-icone {
+      background: #22263a;
+      font-size: 28px;
+    }
+
+    body.light .tuile-add .tuile-icone { background: #f0f2f7; }
+
+    @media (max-width: 600px) {
+      .grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+      .tuile { padding: 20px 14px; }
+      .tuile-icone { width: 58px; height: 58px; font-size: 26px; }
+      .tuile-titre { font-size: 0.88rem; }
+    }
+  </style>
+</head>
+<body class="dark">
+
+  <header>
+    <span class="logo">🏠 Hub de Flo</span>
+    <button id="toggleMode" onclick="toggleMode()">☀️ Mode clair</button>
+  </header>
+
+  <main>
+    <p class="subtitle">Tous mes projets en un seul endroit</p>
+
+    <div class="grid">
+
+      <!-- PROJET 1 -->
+      <a class="tuile" href="https://tableau-de-bord-ten.vercel.app/" target="_blank" rel="noopener">
+        <div class="tuile-icone grad-1">📊</div>
+        <div class="tuile-titre">Tableau de bord Finance</div>
+      </a>
+
+      <!-- PROJET 2 -->
+      <a class="tuile" href="https://flacube.github.io/briefing-actus/" target="_blank" rel="noopener">
+        <div class="tuile-icone grad-2">📰</div>
+        <div class="tuile-titre">News & Actus</div>
+      </a>
+
+      <!-- TUILE AJOUTER (placeholder) -->
+      <div class="tuile tuile-add">
+        <div class="tuile-icone">＋</div>
+        <div class="tuile-titre">Nouveau projet</div>
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    function toggleMode() {
+      const body = document.body;
+      const btn  = document.getElementById("toggleMode");
+      if (body.classList.contains("dark")) {
+        body.classList.replace("dark", "light");
+        btn.textContent = "🌙 Mode sombre";
+      } else {
+        body.classList.replace("light", "dark");
+        btn.textContent = "☀️ Mode clair";
+      }
+    }
+  </script>
+
+</body>
+</html>
