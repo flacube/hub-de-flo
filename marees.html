@@ -10,7 +10,10 @@
   * { box-sizing: border-box; }
   html, body { margin: 0; background: var(--creme); }
   body { font-family: 'Space Grotesk', system-ui, sans-serif; color: var(--marine); }
-  .app { max-width: 430px; min-height: 100dvh; margin: 0 auto; padding: 52px 24px 0; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+  .barre { margin-bottom: 18px; }
+  .fermer { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px 0 14px; border: 2px solid var(--marine); border-radius: 22px; color: var(--marine); text-decoration: none; font-size: 15px; font-weight: 700; }
+  .fermer:focus-visible { outline: 3px solid var(--vert); outline-offset: 2px; }
+  .app { max-width: 430px; min-height: 100dvh; margin: 0 auto; padding: 20px 24px 0; display: flex; flex-direction: column; position: relative; overflow: hidden; }
   header { display: flex; justify-content: space-between; align-items: flex-end; }
   .lieu { font-family: 'Caveat', cursive; font-size: 38px; line-height: 1; color: var(--vert); }
   h1 { margin: 0; font-size: 46px; line-height: 1.1; font-weight: 700; }
@@ -40,6 +43,7 @@
 </head>
 <body>
 <main class="app">
+  <div class="barre"><a class="fermer" href="index.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>Fermer</a></div>
   <header>
     <div><div class="lieu">Arcachon</div><h1>Marées</h1></div>
     <div class="fleches">
